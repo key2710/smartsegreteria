@@ -48,7 +48,7 @@ CREATE TABLE personale_scolastico (
 	data_fine DATE DEFAULT NULL,
 	telefono VARCHAR(20),
 	email VARCHAR(100),
-	FOREIGN KEY (id_mansione) REFERENCES mansione(id_mansione)
+	FOREIGN KEY (id_mansione) REFERENCES mansione(id_mansione),
 	INDEX idx_cognome (cognome),
 	INDEX idx_nome (nome)
 );
