@@ -1,3 +1,27 @@
+CREATE TABLE ruoli (
+    id_ruolo INT AUTO_INCREMENT PRIMARY KEY,
+    nome_ruolo VARCHAR(50) NOT NULL UNIQUE,
+    descrizione VARCHAR(255) DEFAULT NULL
+);
+
+CREATE TABLE users (
+    id_user INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    id_ruolo INT,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_ruolo) REFERENCES ruoli(id_ruolo)
+);
+
+CREATE TABLE authorized_emails (
+    id_authorized_email INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    authorized_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    authorized_by INT,  -- Id del superuser che autorizza
+    FOREIGN KEY (authorized_by) REFERENCES users(id_user)
+);
+
 CREATE TABLE mansione (
     id_mansione INT AUTO_INCREMENT PRIMARY KEY,
     nome_mansione VARCHAR(100) NOT NULL
@@ -80,3 +104,8 @@ VALUES ('Docente');
 insert into classe_di_concorso(codice_classe_di_concorso,descrizione_classe_di_concorso)
 VALUES
 	('ALFA','Classe di concorso fittizzia da correggere dopo');
+
+INSERT INTO ruoli (nome_ruolo, descrizione)
+VALUES
+    ('superuser', 'Amministratore con tutti i permessi'),
+    ('user', 'Utente normale con permessi limitati');
