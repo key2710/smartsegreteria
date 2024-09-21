@@ -39,7 +39,7 @@ CREATE TABLE classe(
 
 CREATE TABLE giorno_settimana(
 	id_giorno_settimana INT AUTO_INCREMENT PRIMARY KEY,
-	desc_breve_giorno_settmana VARCHAR(3)
+	desc_breve_giorno_settimana VARCHAR(3)
 )
 
 CREATE TABLE orario_scolastico(
@@ -55,7 +55,7 @@ CREATE TABLE orario_scolastico(
     FOREIGN KEY (id_docente_personale_scolastico) REFERENCES docente_personale_scolastico(id_docente_personale_scolastico)    
 )
 
-insert into giorno_settimana(desc_breve_giorno_settmana)
+insert into giorno_settimana(desc_breve_giorno_settimana)
 VALUES 
 	('LUN'),
 	('MAR'),
