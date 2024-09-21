@@ -25,7 +25,7 @@ CREATE TABLE docente_personale_scolastico(
 	id_docente_personale_scolastico INT AUTO_INCREMENT PRIMARY KEY,
 	id_classe_di_concorso INT,
 	id_personale_scolastico INT,
-    FOREIGN KEY (id_classe_di_concorso) REFERENCES clase_di_concorso(id_classe_di_concorso),
+    FOREIGN KEY (id_classe_di_concorso) REFERENCES classe_di_concorso(id_classe_di_concorso),
     FOREIGN KEY (id_personale_scolastico) REFERENCES personale_scolastico(id_personale_scolastico)
 )
 
